@@ -44,6 +44,7 @@
       pointer-events: none; z-index: 0;
     }
 
+    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(17,17,17,0.9);
@@ -56,6 +57,7 @@
     .nav-back { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: rgba(250,246,238,0.4); text-decoration: none; transition: color 0.15s; }
     .nav-back:hover { color: var(--cream); }
 
+    /* ── HERO ── */
     .hero {
       position: relative; z-index: 1;
       max-width: 860px; margin: 0 auto;
@@ -93,6 +95,7 @@
       animation: fadeUp 0.5s 0.18s ease both;
     }
 
+    /* ── VOICE CARDS ── */
     .voices-wrap {
       position: relative; z-index: 1;
       max-width: 860px; margin: 0 auto;
@@ -109,6 +112,7 @@
     }
 
     .voice-card:hover { border-color: rgba(250,246,238,0.14); }
+
     .voice-card:nth-child(1){ animation-delay:0.00s; }
     .voice-card:nth-child(2){ animation-delay:0.06s; }
     .voice-card:nth-child(3){ animation-delay:0.12s; }
@@ -122,44 +126,161 @@
       gap: 20px; align-items: start;
     }
 
-    .voice-accent { width: 4px; border-radius: 2px; align-self: stretch; flex-shrink: 0; }
+    /* Color accent bar on left */
+    .voice-accent {
+      width: 4px; border-radius: 2px;
+      align-self: stretch; flex-shrink: 0;
+    }
+
     .voice-meta {}
-    .voice-divisions { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
-    .div-chip { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
-    .voice-name { font-family: 'DM Serif Display', serif; font-size: 36px; letter-spacing: -0.02em; line-height: 1.0; margin-bottom: 6px; }
-    .voice-character { font-size: 13px; font-weight: 600; color: rgba(250,246,238,0.5); margin-bottom: 4px; letter-spacing: 0.02em; }
-    .voice-desc { font-size: 13px; font-weight: 300; color: rgba(250,246,238,0.35); line-height: 1.5; max-width: 440px; }
-    .voice-status { text-align: right; flex-shrink: 0; }
 
-    .status-badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 6px; background: rgba(46,155,111,0.1); color: var(--green); border: 1px solid rgba(46,155,111,0.2); }
-    .status-badge.pending { background: rgba(250,246,238,0.04); color: rgba(250,246,238,0.25); border-color: rgba(250,246,238,0.08); }
+    .voice-divisions {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;
+    }
 
-    .voice-player { border-top: 1px solid rgba(250,246,238,0.06); padding: 20px 32px 24px; background: rgba(0,0,0,0.2); }
-    .player-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,246,238,0.25); margin-bottom: 10px; }
-    .demo-player { display: flex; flex-direction: column; gap: 10px; }
-    .demo-meta { display: flex; align-items: center; gap: 10px; }
-    .demo-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .demo-title { font-family: 'DM Serif Display', serif; font-size: 15px; letter-spacing: -0.01em; color: var(--cream); }
-    .demo-sci { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--orange); margin-left: auto; }
-    .demo-audio { width: 100%; accent-color: var(--orange); height: 32px; }
-    .demo-pending { font-size: 13px; font-weight: 300; color: rgba(250,246,238,0.2); font-style: italic; padding: 8px 0; }
-    .demo-articles { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-    .demo-article-link { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.04em; color: rgba(250,246,238,0.3); text-decoration: none; background: rgba(250,246,238,0.04); border: 1px solid rgba(250,246,238,0.07); padding: 4px 10px; border-radius: 5px; transition: color 0.15s, border-color 0.15s; }
+    .div-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 4px;
+    }
+
+    .voice-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px; letter-spacing: -0.02em;
+      line-height: 1.0; margin-bottom: 6px;
+    }
+
+    .voice-character {
+      font-size: 13px; font-weight: 600;
+      color: rgba(250,246,238,0.5); margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .voice-desc {
+      font-size: 13px; font-weight: 300;
+      color: rgba(250,246,238,0.35); line-height: 1.5;
+      max-width: 440px;
+    }
+
+    .voice-status {
+      text-align: right; flex-shrink: 0;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 6px;
+      background: rgba(46,155,111,0.1); color: var(--green);
+      border: 1px solid rgba(46,155,111,0.2);
+    }
+
+    .status-badge.pending {
+      background: rgba(250,246,238,0.04); color: rgba(250,246,238,0.25);
+      border-color: rgba(250,246,238,0.08);
+    }
+
+    /* Player area */
+    .voice-player {
+      border-top: 1px solid rgba(250,246,238,0.06);
+      padding: 20px 32px 24px;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .player-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250,246,238,0.25); margin-bottom: 10px;
+    }
+
+    /* Demo player — inline sample */
+    .demo-player {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .demo-meta {
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .demo-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .demo-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px; letter-spacing: -0.01em; color: var(--cream);
+    }
+
+    .demo-sci {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--orange); margin-left: auto;
+    }
+
+    .demo-audio {
+      width: 100%; accent-color: var(--orange); height: 32px;
+    }
+
+    .demo-pending {
+      font-size: 13px; font-weight: 300;
+      color: rgba(250,246,238,0.2);
+      font-style: italic;
+      padding: 8px 0;
+    }
+
+    .demo-articles {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;
+    }
+
+    .demo-article-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.04em;
+      color: rgba(250,246,238,0.3); text-decoration: none;
+      background: rgba(250,246,238,0.04); border: 1px solid rgba(250,246,238,0.07);
+      padding: 4px 10px; border-radius: 5px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
     .demo-article-link:hover { color: rgba(250,246,238,0.7); border-color: rgba(250,246,238,0.2); }
 
-    .outro-strip { position: relative; z-index: 1; border-top: 1px solid rgba(250,246,238,0.06); padding: 32px 40px; max-width: 860px; margin: 0 auto; text-align: center; }
-    .outro-text { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: rgba(250,246,238,0.25); letter-spacing: -0.01em; }
-    .outro-sub { font-size: 12px; font-weight: 300; color: rgba(250,246,238,0.15); margin-top: 8px; }
+    /* ── OUTRO NOTE ── */
+    .outro-strip {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(250,246,238,0.06);
+      padding: 32px 40px;
+      max-width: 860px; margin: 0 auto;
+      text-align: center;
+    }
 
-    footer { position: relative; z-index: 1; border-top: 1px solid rgba(250,246,238,0.06); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .outro-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; font-style: italic;
+      color: rgba(250,246,238,0.25); letter-spacing: -0.01em;
+    }
+
+    .outro-sub {
+      font-size: 12px; font-weight: 300;
+      color: rgba(250,246,238,0.15); margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(250,246,238,0.06);
+      padding: 24px 40px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
     .footer-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: rgba(250,246,238,0.5); text-decoration: none; }
     .footer-links { display: flex; gap: 24px; list-style: none; }
     .footer-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,246,238,0.25); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(250,246,238,0.7); }
     .footer-legal { font-size: 11px; color: rgba(250,246,238,0.15); }
 
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
+    /* ── RESPONSIVE ── */
     @media (max-width:768px) {
       nav { padding: 0 20px; }
       .hero { padding: 60px 20px 40px; }
@@ -175,11 +296,13 @@
 
 <body>
 
+  <!-- ── NAV ── -->
   <nav>
     <a class="nav-brand" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/">IN-KluSo</a>
     <a class="nav-back" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/audio/">← Audio Library</a>
   </nav>
 
+  <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-eyebrow">Voice Characters</div>
     <h1>Five voices.<br/><em>Five divisions.</em></h1>
@@ -187,8 +310,10 @@
     <p class="hero-note">Powered by Gemini TTS · One voice per division · Baked into every MP3</p>
   </div>
 
+  <!-- ── VOICE CARDS ── -->
   <div class="voices-wrap">
 
+    <!-- KORE — CORE / SIGNALS -->
     <div class="voice-card">
       <div class="voice-header">
         <div class="voice-accent" style="background:var(--blue);"></div>
@@ -201,7 +326,9 @@
           <div class="voice-character">Business Analyst</div>
           <div class="voice-desc">Crisp, authoritative, precise. Kore reads structural intelligence without flinching — capital flows, labor markets, macro signals. The voice that makes data feel urgent.</div>
         </div>
-        <div class="voice-status"><span class="status-badge">Live</span></div>
+        <div class="voice-status">
+          <span class="status-badge">Live</span>
+        </div>
       </div>
       <div class="voice-player">
         <div class="player-label">Sample · CORE-002 · The 5x Trap</div>
@@ -212,17 +339,19 @@
             <span class="demo-sci">SCI 0.976</span>
           </div>
           <audio class="demo-audio" controls preload="none">
-            <source src="https://jjaecheverri.github.io/inkluso-magazine/core/the-5x-trap/audio.mp3" type="audio/mpeg"/>
+            <source src="https://jjaecheverri.github.io/inkluso-magazine-claude-update/audio/voice_demo_core.mp3" type="audio/mpeg"/>
           </audio>
           <div class="demo-articles">
             <span class="player-label" style="margin:0;align-self:center;">Also voices:</span>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/core/the-triple-break/">The Triple Break</a>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/core/the-trillion-dollar-line-item/">The Trillion-Dollar Line Item</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/core/the-triple-break/">The Triple Break</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/core/the-trillion-dollar-line-item/">The Trillion-Dollar Line Item</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/core/the-extraction-playbook/">The Extraction Playbook</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- CHARON — AXIS -->
     <div class="voice-card">
       <div class="voice-header">
         <div class="voice-accent" style="background:var(--magenta);"></div>
@@ -234,7 +363,9 @@
           <div class="voice-character">Geopolitics Analyst</div>
           <div class="voice-desc">Deep, commanding, unsparing. Charon doesn't soften the analysis — creative infrastructure, cultural economy, governance, the intersection where power meets production.</div>
         </div>
-        <div class="voice-status"><span class="status-badge">Live</span></div>
+        <div class="voice-status">
+          <span class="status-badge">Live</span>
+        </div>
       </div>
       <div class="voice-player">
         <div class="player-label">Sample · AXIS-002 · The Human Authorship Seal</div>
@@ -245,17 +376,18 @@
             <span class="demo-sci">SCI 0.952</span>
           </div>
           <audio class="demo-audio" controls preload="none">
-            <source src="https://jjaecheverri.github.io/inkluso-magazine/axis/the-human-authorship-seal/audio.mp3" type="audio/mpeg"/>
+            <source src="https://jjaecheverri.github.io/inkluso-magazine-claude-update/audio/voice_demo_axis.mp3" type="audio/mpeg"/>
           </audio>
           <div class="demo-articles">
             <span class="player-label" style="margin:0;align-self:center;">Also voices:</span>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/axis/the-robot-wage/">The Robot Wage</a>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/axis/the-white-collar-recession/">The White-Collar Recession</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/axis/the-robot-wage/">The Robot Wage</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/axis/the-white-collar-recession/">The White-Collar Recession</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- PUCK — FLOW / CRUMBS -->
     <div class="voice-card">
       <div class="voice-header">
         <div class="voice-accent" style="background:var(--orange);"></div>
@@ -268,7 +400,9 @@
           <div class="voice-character">Culture &amp; Lifestyle · Your Quick Brief</div>
           <div class="voice-desc">Vibrant, energetic, knowing. Puck reads attention economy and platform shifts with the energy of someone who's already seen what's coming. Also handles CRUMBS — quick, punchy, done.</div>
         </div>
-        <div class="voice-status"><span class="status-badge">Live</span></div>
+        <div class="voice-status">
+          <span class="status-badge">Live</span>
+        </div>
       </div>
       <div class="voice-player">
         <div class="player-label">Sample · FLOW-003 · The Last Masthead</div>
@@ -279,17 +413,18 @@
             <span class="demo-sci">SCI 0.910</span>
           </div>
           <audio class="demo-audio" controls preload="none">
-            <source src="https://jjaecheverri.github.io/inkluso-magazine/flow/the-last-masthead/audio.mp3" type="audio/mpeg"/>
+            <source src="https://jjaecheverri.github.io/inkluso-magazine-claude-update/audio/voice_demo_flow.mp3" type="audio/mpeg"/>
           </audio>
           <div class="demo-articles">
             <span class="player-label" style="margin:0;align-self:center;">Also voices:</span>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/flow/the-empty-room/">The Empty Room</a>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/crumbs/farmers-market-march-2026/">Farmers Market CRUMBS</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/flow/the-empty-room/">The Empty Room</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/crumbs/farmers-market-march-2026/">Farmers Market CRUMBS</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- AOEDE — CITIES / THRIVE -->
     <div class="voice-card">
       <div class="voice-header">
         <div class="voice-accent" style="background:var(--green);"></div>
@@ -302,7 +437,9 @@
           <div class="voice-character">City Correspondent · Wellness Guide</div>
           <div class="voice-desc">Warm, curious, grounded. Aoede brings you inside a city or a lived experience — NWA farmers markets, Madrid governance, the human layer under the structural signal. Never distant.</div>
         </div>
-        <div class="voice-status"><span class="status-badge">Live</span></div>
+        <div class="voice-status">
+          <span class="status-badge">Live</span>
+        </div>
       </div>
       <div class="voice-player">
         <div class="player-label">Sample · NWA-GROUND-006 · The #1 Metro</div>
@@ -313,17 +450,18 @@
             <span class="demo-sci">SCI 0.940</span>
           </div>
           <audio class="demo-audio" controls preload="none">
-            <source src="https://jjaecheverri.github.io/inkluso-magazine/cities/nwa/the-number-one-metro/audio.mp3" type="audio/mpeg"/>
+            <source src="https://jjaecheverri.github.io/inkluso-magazine-claude-update/audio/voice_demo_cities.mp3" type="audio/mpeg"/>
           </audio>
           <div class="demo-articles">
             <span class="player-label" style="margin:0;align-self:center;">Also voices:</span>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/cities/madrid/the-neighbors-veto/">The Neighbor's Veto</a>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/thrive/the-credential-collapse/">The Credential Collapse</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/cities/madrid/the-neighbors-veto/">The Neighbor's Veto</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/thrive/the-credential-collapse/">The Credential Collapse</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- FENRIR — KONTRARIAN -->
     <div class="voice-card">
       <div class="voice-header">
         <div class="voice-accent" style="background:var(--gold);"></div>
@@ -335,28 +473,34 @@
           <div class="voice-character">The Contrarian</div>
           <div class="voice-desc">Bold, edgy, confrontational. Fenrir is the voice of Kontrarian — the publication that publishes what the mainstream narrative gets wrong about a place. Insiders looking out, not expats looking in.</div>
         </div>
-        <div class="voice-status"><span class="status-badge pending">Queued</span></div>
+        <div class="voice-status">
+          <span class="status-badge pending">Queued</span>
+        </div>
       </div>
       <div class="voice-player">
         <div class="player-label">Sample · Kontrarian · Coming soon</div>
         <div class="demo-player">
-          <div class="demo-pending">Fenrir's first audio drops when the next Kontrarian article processes.</div>
+          <div class="demo-pending">
+            Fenrir's first audio drops when the next Kontrarian article processes. Daily quota resets at midnight.
+          </div>
           <div class="demo-articles">
             <span class="player-label" style="margin:0;align-self:center;">Will voice:</span>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/kontrarian/">Kontrarian · Medellín</a>
-            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine/kontrarian/">Kontrarian · Madrid</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/kontrarian/">Kontrarian · Medellín</a>
+            <a class="demo-article-link" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/kontrarian/">Kontrarian · Madrid</a>
           </div>
         </div>
       </div>
     </div>
 
-  </div>
+  </div><!-- /voices-wrap -->
 
+  <!-- ── OUTRO ── -->
   <div class="outro-strip">
     <div class="outro-text">"Listen to Inkluso free on your commute. No ads."</div>
     <div class="outro-sub">Baked into every MP3. Every voice. Every division.</div>
   </div>
 
+  <!-- ── FOOTER ── -->
   <footer>
     <a class="footer-brand" href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/">IN-KluSo</a>
     <ul class="footer-links">
