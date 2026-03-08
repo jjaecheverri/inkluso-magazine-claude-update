@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HumanKlu™ · Human Content Certification · IN-KluSo</title>
+  <meta name="description" content="HumanKlu™ is the external certification standard for human-verified content. Five dimensions. One badge. Verifiable credibility in an era of AI-generated slop."/>
+  <link rel="canonical" href="https://jjaecheverri.github.io/inkluso-magazine/humanklu/"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "HumanKlu™ · Human Content Certification",
+    "description": "HumanKlu™ is IN-KluSo's external certification standard for human-verified content. Submit content for scoring across five dimensions. Certified content earns the HumanKlu™ badge.",
+    "url": "https://jjaecheverri.github.io/inkluso-magazine/humanklu/",
+    "publisher": { "@type": "Organization", "name": "IN-KluSo · Xtatik", "url": "https://jjaecheverri.github.io/inkluso-magazine/" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #FAF6EE;
+      --orange:   #E8602C;
+      --black:    #111111;
+      --gold:     #C9A84C;
+      --blue:     #2D6BE4;
+      --magenta:  #C4317A;
+      --green:    #2E9B6F;
+      --card-shadow: 0 2px 20px rgba(17,17,17,0.07), 0 1px 4px rgba(17,17,17,0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=1920&q=60&auto=format');
+      background-size: cover; background-position: center;
+      opacity: 0.09; mix-blend-mode: multiply; filter: grayscale(40%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,246,238,0.88);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,0.08);
+      padding: 0 40px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--black); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); text-decoration: none; opacity: 0.5; transition: opacity 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      max-width: 900px; margin: 0 auto;
+      padding: 96px 40px 80px;
+    }
+
+    .hero-lang-toggle {
+      display: inline-flex; gap: 4px;
+      background: rgba(17,17,17,0.06); border-radius: 8px;
+      padding: 4px; margin-bottom: 32px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .lang-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      padding: 6px 14px; border-radius: 5px; border: none;
+      cursor: pointer; transition: background 0.15s, color 0.15s;
+      background: transparent; color: rgba(17,17,17,0.5);
+    }
+    .lang-btn.active { background: var(--black); color: var(--cream); }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+      animation: fadeUp 0.4s 0.06s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 0.95; letter-spacing: -0.03em;
+      color: var(--black); margin-bottom: 28px;
+      animation: fadeUp 0.4s 0.1s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--orange); }
+    .hero h1 sup { font-size: 0.35em; vertical-align: super; letter-spacing: 0; color: var(--orange); }
+
+    .hero-intro {
+      font-size: 19px; font-weight: 300;
+      color: rgba(17,17,17,0.62); max-width: 580px;
+      line-height: 1.55; margin-bottom: 40px;
+      animation: fadeUp 0.4s 0.14s ease both;
+    }
+
+    .hero-cta-row {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      animation: fadeUp 0.4s 0.18s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff;
+      font-size: 14px; font-weight: 600;
+      padding: 14px 28px; border-radius: 8px;
+      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,96,44,0.35); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: rgba(17,17,17,0.6);
+      font-size: 14px; font-weight: 500;
+      padding: 14px 20px; border-radius: 8px;
+      text-decoration: none; border: 1px solid rgba(17,17,17,0.15);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-ghost:hover { color: var(--black); border-color: rgba(17,17,17,0.35); }
+
+    /* ── HK BADGE DISPLAY ── */
+    .badge-showcase {
+      position: relative; z-index: 1;
+      background: var(--black); padding: 64px 40px;
+    }
+    .badge-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .badge-copy {}
+    .badge-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .badge-title { font-family: 'DM Serif Display', serif; font-size: 34px; letter-spacing: -0.02em; line-height: 1.1; color: var(--cream); margin-bottom: 16px; }
+    .badge-title em { font-style: italic; color: var(--orange); }
+    .badge-body { font-size: 15px; font-weight: 300; color: rgba(250,246,238,0.55); line-height: 1.65; }
+
+    .badge-visual {
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+
+    /* The actual HumanKlu badge */
+    .hk-badge {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 32px;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      min-width: 220px;
+    }
+    .hk-badge-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; letter-spacing: -0.02em;
+      color: var(--black);
+    }
+    .hk-badge-logo span { color: var(--orange); }
+    .hk-badge-score-row {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .hk-badge-score {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px; font-weight: 600;
+      color: var(--green); line-height: 1;
+    }
+    .hk-badge-tier {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(46,155,111,0.1); color: var(--green);
+      border: 1px solid rgba(46,155,111,0.25);
+      padding: 4px 10px; border-radius: 4px;
+    }
+    .hk-badge-dims {
+      display: flex; gap: 4px; flex-wrap: wrap; justify-content: center;
+    }
+    .hk-badge-dim {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 600; letter-spacing: 0.06em;
+      color: rgba(17,17,17,0.45);
+      background: rgba(17,17,17,0.05);
+      padding: 3px 7px; border-radius: 3px;
+    }
+    .hk-badge-footer {
+      font-size: 10px; color: rgba(17,17,17,0.3);
+      font-family: 'Inter', sans-serif; text-align: center;
+      border-top: 1px solid rgba(17,17,17,0.07); padding-top: 10px;
+      width: 100%;
+    }
+
+    .badge-caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: rgba(250,246,238,0.3);
+      letter-spacing: 0.06em; text-align: center;
+    }
+
+    /* ── TORN ── */
+    .torn { position: relative; z-index: 1; width: 100%; overflow: hidden; line-height: 0; }
+    .torn svg { display: block; width: 100%; }
+
+    /* ── DIMENSIONS ── */
+    .section { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 72px 40px; }
+    .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; line-height: 1.1; color: var(--black); margin-bottom: 16px; }
+    .section-body { font-size: 16px; font-weight: 300; color: rgba(17,17,17,0.6); line-height: 1.65; max-width: 580px; margin-bottom: 48px; }
+
+    .dims-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px;
+    }
+    .dim-card {
+      background: #fff; border-radius: 12px; padding: 24px 20px;
+      box-shadow: var(--card-shadow);
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform 0.15s, box-shadow 0.15s;
+      animation: fadeUp 0.4s ease both;
+    }
+    .dim-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(17,17,17,0.10); }
+    .dim-card:nth-child(1){ animation-delay:0.00s; }
+    .dim-card:nth-child(2){ animation-delay:0.05s; }
+    .dim-card:nth-child(3){ animation-delay:0.10s; }
+    .dim-card:nth-child(4){ animation-delay:0.15s; }
+    .dim-card:nth-child(5){ animation-delay:0.20s; }
+
+    .dim-code {
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.06em; padding: 6px 10px; border-radius: 6px; align-self: flex-start;
+    }
+    .evid { background: rgba(45,107,228,0.10); color: var(--blue); }
+    .mech { background: rgba(232,96,44,0.10);  color: var(--orange); }
+    .inc  { background: rgba(196,49,122,0.10); color: var(--magenta); }
+    .risk { background: rgba(201,168,76,0.15); color: var(--gold); }
+    .spec { background: rgba(46,155,111,0.10); color: var(--green); }
+
+    .dim-name { font-family: 'DM Serif Display', serif; font-size: 17px; letter-spacing: -0.01em; color: var(--black); line-height: 1.2; }
+    .dim-desc { font-size: 12px; font-weight: 300; color: rgba(17,17,17,0.55); line-height: 1.5; }
+
+    /* ── WHO IT'S FOR ── */
+    .clients-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; margin-top: 48px;
+    }
+    .client-card {
+      background: #fff; border-radius: 12px; padding: 28px;
+      box-shadow: var(--card-shadow);
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: transform 0.15s;
+    }
+    .client-card:hover { transform: translateY(-2px); }
+    .client-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .client-body {}
+    .client-title { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.01em; color: var(--black); margin-bottom: 6px; }
+    .client-desc { font-size: 13px; font-weight: 300; color: rgba(17,17,17,0.55); line-height: 1.5; }
+
+    /* ── CERT LEVELS ── */
+    .levels-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-top: 48px;
+    }
+    .level-card {
+      border-radius: 12px; padding: 24px 20px;
+      box-shadow: var(--card-shadow);
+    }
+    .level-1 { background: rgba(17,17,17,0.03);  border: 1px solid rgba(17,17,17,0.08); }
+    .level-2 { background: rgba(45,107,228,0.05); border: 1px solid rgba(45,107,228,0.12); }
+    .level-3 { background: rgba(232,96,44,0.05);  border: 1px solid rgba(232,96,44,0.15); }
+    .level-4 { background: rgba(46,155,111,0.06); border: 1px solid rgba(46,155,111,0.18); }
+
+    .level-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; margin-bottom: 8px;
+    }
+    .level-1 .level-num { color: rgba(17,17,17,0.35); }
+    .level-2 .level-num { color: var(--blue); }
+    .level-3 .level-num { color: var(--orange); }
+    .level-4 .level-num { color: var(--green); }
+
+    .level-name { font-family: 'DM Serif Display', serif; font-size: 20px; letter-spacing: -0.01em; color: var(--black); margin-bottom: 8px; }
+    .level-range { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+    .level-1 .level-range { color: rgba(17,17,17,0.4); }
+    .level-2 .level-range { color: var(--blue); }
+    .level-3 .level-range { color: var(--orange); }
+    .level-4 .level-range { color: var(--green); }
+    .level-desc { font-size: 12px; font-weight: 300; color: rgba(17,17,17,0.55); line-height: 1.5; }
+
+    /* ── PROCESS ── */
+    .process-steps {
+      display: flex; flex-direction: column; gap: 3px; margin-top: 48px;
+    }
+    .process-step {
+      background: #fff; border-radius: 12px; padding: 24px 28px;
+      display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: center;
+      box-shadow: var(--card-shadow); transition: transform 0.15s;
+    }
+    .process-step:hover { transform: translateX(4px); }
+    .step-num {
+      font-family: 'DM Serif Display', serif; font-size: 36px;
+      color: rgba(17,17,17,0.12); line-height: 1; text-align: center;
+    }
+    .step-body {}
+    .step-title { font-family: 'DM Serif Display', serif; font-size: 18px; letter-spacing: -0.01em; color: var(--black); margin-bottom: 4px; }
+    .step-desc { font-size: 13px; font-weight: 300; color: rgba(17,17,17,0.55); line-height: 1.5; }
+    .step-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--orange); margin-top: 6px; }
+
+    /* ── SUBMIT ANCHOR SECTION ── */
+    .submit-section {
+      position: relative; z-index: 1;
+      background: var(--cream);
+    }
+    .submit-inner {
+      max-width: 900px; margin: 0 auto; padding: 80px 40px;
+    }
+    .submit-card {
+      background: var(--black); border-radius: 16px;
+      padding: 60px 56px; position: relative; overflow: hidden;
+    }
+    .submit-card::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 300px; height: 300px; background: var(--orange);
+      opacity: 0.05; clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 60%);
+    }
+    .submit-eyebrow {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+    }
+    .submit-title {
+      font-family: 'DM Serif Display', serif; font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -0.02em; line-height: 1.05; color: var(--cream); margin-bottom: 16px;
+    }
+    .submit-title em { font-style: italic; color: var(--orange); }
+    .submit-body {
+      font-size: 16px; font-weight: 300; color: rgba(250,246,238,0.55);
+      line-height: 1.6; max-width: 520px; margin-bottom: 40px;
+    }
+    .submit-turnaround {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 40px;
+    }
+    .turnaround-card {
+      border-radius: 10px; padding: 20px 22px;
+    }
+    .t-standard { background: rgba(250,246,238,0.04); border: 1px solid rgba(250,246,238,0.08); }
+    .t-priority { background: rgba(232,96,44,0.08); border: 1px solid rgba(232,96,44,0.2); }
+    .t-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .t-standard .t-label { color: rgba(250,246,238,0.35); }
+    .t-priority .t-label { color: var(--orange); }
+    .t-time { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--cream); margin-bottom: 4px; }
+    .t-desc { font-size: 12px; font-weight: 300; color: rgba(250,246,238,0.4); line-height: 1.4; }
+    .t-priority .t-desc { color: rgba(250,246,238,0.55); }
+
+    .submit-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-submit-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff;
+      font-size: 15px; font-weight: 600;
+      padding: 16px 32px; border-radius: 8px;
+      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-submit-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,96,44,0.4); }
+    .btn-submit-ghost {
+      display: inline-flex; align-items: center;
+      background: transparent; color: rgba(250,246,238,0.5);
+      font-size: 15px; font-weight: 500;
+      padding: 16px 24px; border-radius: 8px;
+      text-decoration: none; border: 1px solid rgba(250,246,238,0.15);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-submit-ghost:hover { color: var(--cream); border-color: rgba(250,246,238,0.35); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      background: var(--cream); border-top: 1px solid rgba(17,17,17,0.08);
+      padding: 32px 40px; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--black); text-decoration: none; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(17,17,17,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--black); }
+    .footer-legal { font-size: 11px; color: rgba(17,17,17,0.3); }
+
+    /* ── LANG CONTENT ── */
+    [data-lang="es"] { display: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .dims-grid { grid-template-columns: repeat(3, 1fr); }
+      .levels-grid { grid-template-columns: repeat(2, 1fr); }
+      .badge-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero, .section, .submit-inner { padding-left: 20px; padding-right: 20px; }
+      .dims-grid { grid-template-columns: 1fr 1fr; }
+      .clients-grid { grid-template-columns: 1fr; }
+      .levels-grid { grid-template-columns: 1fr 1fr; }
+      .submit-card { padding: 36px 24px; }
+      .submit-turnaround { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-brand" href="https://jjaecheverri.github.io/inkluso-magazine/">IN-KluSo</a>
+    <ul class="nav-links">
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/core/">Core</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/signal-model/">SCI</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/humanklu/" class="active">HumanKlu™</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/subscribe/">Subscribe</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-tools/">Tools</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+      <button class="lang-btn" onclick="setLang('es', this)">ES</button>
+    </div>
+
+    <div data-lang="en">
+      <div class="hero-eyebrow">Human Calibration Standard</div>
+      <h1>Human<span style="color:var(--orange)">Klu</span><sup>™</sup><br/>Certification.</h1>
+      <p class="hero-intro">
+        In an era of AI-generated slop, trust has to be earned and visible. HumanKlu™ is the certification standard that makes human authorship verifiable — a badge your audience and partners can see and confirm.
+      </p>
+    </div>
+
+    <div data-lang="es" style="display:none;">
+      <div class="hero-eyebrow">Estándar de Calibración Humana</div>
+      <h1>Human<span style="color:var(--orange)">Klu</span><sup>™</sup><br/>Certificación.</h1>
+      <p class="hero-intro">
+        En una era de contenido generado por IA, la confianza debe ganarse y ser visible. HumanKlu™ es el estándar de certificación que hace verificable la autoría humana — una insignia que tu audiencia y socios pueden ver y confirmar.
+      </p>
+    </div>
+
+    <div class="hero-cta-row">
+      <a class="btn-primary" href="#submit">Submit content →</a>
+      <a class="btn-ghost" href="https://jjaecheverri.github.io/inkluso-magazine/signal-model/">How scoring works</a>
+    </div>
+  </section>
+
+  <!-- ── BADGE SHOWCASE ── -->
+  <div class="badge-showcase">
+    <div class="badge-inner">
+      <div class="badge-copy">
+        <div class="badge-eyebrow">The Badge</div>
+        <h2 class="badge-title">A visible signal of <em>verified</em> credibility.</h2>
+        <p class="badge-body">
+          Certified content earns the HumanKlu™ badge — an embeddable trust marker that displays your HCI score, certification tier, and verification date. Think what SSL certificates did for website trust. This is that, for content credibility.
+        </p>
+      </div>
+      <div class="badge-visual">
+        <div class="hk-badge">
+          <div class="hk-badge-logo">Human<span>Klu</span>™</div>
+          <div class="hk-badge-score-row">
+            <div class="hk-badge-score">0.91</div>
+            <div class="hk-badge-tier">VERIFIED</div>
+          </div>
+          <div class="hk-badge-dims">
+            <span class="hk-badge-dim">EVID</span>
+            <span class="hk-badge-dim">MECH</span>
+            <span class="hk-badge-dim">INC</span>
+            <span class="hk-badge-dim">RISK</span>
+            <span class="hk-badge-dim">SPEC</span>
+          </div>
+          <div class="hk-badge-footer">
+            Certified by IN-KluSo · Xtatik<br/>
+            HCI Standard v1.0.0
+          </div>
+        </div>
+        <div class="badge-caption">Sample badge · Actual score varies per submission</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TORN ── -->
+  <div class="torn" style="transform:scaleY(-1); margin-bottom:-1px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" preserveAspectRatio="none" height="40">
+      <path d="M0,0 L0,28 Q120,42 240,14 Q360,0 480,30 Q600,42 720,10 Q840,0 960,32 Q1080,44 1200,16 Q1320,4 1440,22 L1440,0 Z" fill="#111111"/>
+    </svg>
+  </div>
+
+  <!-- ── FIVE DIMENSIONS ── -->
+  <section class="section">
+    <div class="section-eyebrow">The HCI Standard</div>
+    <h2 class="section-title">Five dimensions.<br/>One score.</h2>
+    <p class="section-body">The Human Calibration Index scores content across the same five dimensions used internally by IN-KluSo's editorial team. No dimension is optional.</p>
+
+    <div class="dims-grid">
+      <div class="dim-card">
+        <span class="dim-code evid">EVID</span>
+        <div class="dim-name">Evidence Quality</div>
+        <div class="dim-desc">Source reliability, primary vs. secondary sourcing, verification depth. Can the claims be independently confirmed?</div>
+      </div>
+      <div class="dim-card">
+        <span class="dim-code mech">MECH</span>
+        <div class="dim-name">Mechanism Clarity</div>
+        <div class="dim-desc">Causal chain completeness. Does the content explain why, not just what? Is the logic traceable and evidenced?</div>
+      </div>
+      <div class="dim-card">
+        <span class="dim-code inc">INC</span>
+        <div class="dim-name">Inclusivity of Perspective</div>
+        <div class="dim-desc">Range of affected stakeholders represented. Are relevant voices present, or does the piece speak from a single vantage?</div>
+      </div>
+      <div class="dim-card">
+        <span class="dim-code risk">RISK</span>
+        <div class="dim-name">Risk Disclosure</div>
+        <div class="dim-desc">Transparency about what the analysis cannot confirm. Are limits named? Is uncertainty treated honestly?</div>
+      </div>
+      <div class="dim-card">
+        <span class="dim-code spec">SPEC</span>
+        <div class="dim-name">Specificity</div>
+        <div class="dim-desc">Precision of claims. No vague qualifiers where numbers, names, or dates are available. Territory and time window present.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO IT'S FOR ── -->
+  <section class="section" style="padding-top:0;">
+    <div class="section-eyebrow">Who Certifies</div>
+    <h2 class="section-title">For organizations where<br/>credibility is the product.</h2>
+    <p class="section-body">HumanKlu™ certification is built for publishers, brands, and institutions that need to demonstrate — not just claim — content quality.</p>
+
+    <div class="clients-grid">
+      <div class="client-card">
+        <div class="client-icon" style="background:rgba(45,107,228,0.08);">📰</div>
+        <div class="client-body">
+          <div class="client-title">Independent Media</div>
+          <div class="client-desc">Differentiate from AI-generated content at a structural level. The badge signals editorial rigor to readers and partners who can't audit your workflow themselves.</div>
+        </div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon" style="background:rgba(232,96,44,0.08);">🏢</div>
+        <div class="client-body">
+          <div class="client-title">Corporate Communications</div>
+          <div class="client-desc">Reports, white papers, and public-facing research that carry institutional weight need verifiable sourcing standards. HumanKlu™ makes that standard visible.</div>
+        </div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon" style="background:rgba(46,155,111,0.08);">🌐</div>
+        <div class="client-body">
+          <div class="client-title">NGOs &amp; Think Tanks</div>
+          <div class="client-desc">Policy research and advocacy content lives or dies by its credibility. Certification provides an independent verification layer your stakeholders can reference.</div>
+        </div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon" style="background:rgba(201,168,76,0.1);">🎓</div>
+        <div class="client-body">
+          <div class="client-title">Academic &amp; Research Institutions</div>
+          <div class="client-desc">Public-facing research summaries, briefings, and outreach materials that need to bridge rigorous sourcing with accessible presentation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATION LEVELS ── -->
+  <section class="section" style="padding-top:0;">
+    <div class="section-eyebrow">Certification Levels</div>
+    <h2 class="section-title">Four tiers.<br/>One honest scale.</h2>
+    <p class="section-body">HCI scores produce a certification level. The level is shown on the badge. There is no minimum to submit — but only content scoring above 0.60 receives a certification badge.</p>
+
+    <div class="levels-grid">
+      <div class="level-card level-1">
+        <div class="level-num">Level 01</div>
+        <div class="level-name">Reviewed</div>
+        <div class="level-range">0.40–0.59</div>
+        <div class="level-desc">Scored and returned with detailed dimension feedback. No badge issued. Resubmit after revisions.</div>
+      </div>
+      <div class="level-card level-2">
+        <div class="level-num">Level 02</div>
+        <div class="level-name">Certified</div>
+        <div class="level-range">0.60–0.74</div>
+        <div class="level-desc">Badge issued. Uncertainty noted on certificate. Meets the baseline human content standard.</div>
+      </div>
+      <div class="level-card level-3">
+        <div class="level-num">Level 03</div>
+        <div class="level-name">Verified</div>
+        <div class="level-range">0.75–0.89</div>
+        <div class="level-desc">Full badge with Verified designation. Strong sourcing, clear mechanism, honest uncertainty handling.</div>
+      </div>
+      <div class="level-card level-4">
+        <div class="level-num">Level 04</div>
+        <div class="level-name">Distinguished</div>
+        <div class="level-range">0.90–1.00</div>
+        <div class="level-desc">Distinguished badge. Anchor-quality content. Eligible for editorial feature in IN-KluSo archive.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="section" style="padding-top:0;">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">Submit. Score.<br/>Certify.</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Submit your content</div>
+          <div class="step-desc">Use the form below. Paste a URL or describe your piece. Include context on intended audience and urgency level.</div>
+          <div class="step-meta">Takes under 3 minutes</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Editorial review</div>
+          <div class="step-desc">Our team scores the content across all five HCI dimensions. Each score includes dimension-level notes explaining what holds up and what doesn't.</div>
+          <div class="step-meta">Standard: 48–72 hrs · Priority: same day</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Score delivery</div>
+          <div class="step-desc">You receive a full HCI scorecard — composite score, per-dimension breakdown, and specific feedback on gaps. No hedging.</div>
+          <div class="step-meta">Delivered by email</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Badge issued</div>
+          <div class="step-desc">Content scoring ≥ 0.60 receives an embeddable HumanKlu™ badge with your score, certification level, and verification date. Embed it anywhere.</div>
+          <div class="step-meta">Embeddable HTML + PNG · Valid 12 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SUBMIT SECTION ── -->
+  <section class="submit-section" id="submit">
+    <div class="submit-inner">
+      <div class="submit-card">
+        <div class="submit-eyebrow">Submit for Certification</div>
+        <h2 class="submit-title">Ready to certify<br/><em>your content?</em></h2>
+        <p class="submit-body">
+          Use the submission form to send us your content. We'll score it, return a full HCI scorecard, and issue your badge if it qualifies. No commitment required to submit.
+        </p>
+
+        <div class="submit-turnaround">
+          <div class="turnaround-card t-standard">
+            <div class="t-label">Standard</div>
+            <div class="t-time">48–72 hrs</div>
+            <div class="t-desc">Full scorecard + badge delivery. All certification levels.</div>
+          </div>
+          <div class="turnaround-card t-priority">
+            <div class="t-label">Priority ↗</div>
+            <div class="t-time">Same day</div>
+            <div class="t-desc">For time-sensitive releases. Available to Operator tier members and on request.</div>
+          </div>
+        </div>
+
+        <div class="submit-cta-row">
+          <a class="btn-submit-primary" href="https://jjaecheverri.github.io/inkluso-magazine/humanklu/submit/">
+            Open submission form →
+          </a>
+          <a class="btn-submit-ghost" href="/cdn-cgi/l/email-protection#7218181317111a17041700001b32151f131b1e5c111d1f4d010710181711064f3a071f131c391e07574042311700061b141b1113061b1d1c5740423b1c03071b000b">
+            Email us directly
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <a class="footer-brand" href="https://jjaecheverri.github.io/inkluso-magazine/">IN-KluSo</a>
+    <ul class="footer-links">
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/">Magazine</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/signal-model/">SCI</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-magazine/subscribe/">Subscribe</a></li>
+      <li><a href="https://jjaecheverri.github.io/inkluso-tools/">Tools</a></li>
+    </ul>
+    <span class="footer-legal">© 2026 IN-KluSo · Xtatik · HCI Standard v1.0.0</span>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function setLang(lang, btn) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.dataset.lang ==
