@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkluso — Voice Roster</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0a;
+      color: #e8e8e8;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .logo span { color: #E05A1C; }
+    .tagline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #555;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #1e1e1e;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: #333; }
+    .card-header {
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .division-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-title-group { flex: 1; }
+    .division-name {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #E05A1C;
+      margin-bottom: 2px;
+    }
+    .role-name {
+      font-size: 11px;
+      color: #555;
+      font-weight: 500;
+    }
+    .voice-badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #333;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+    .card-body {
+      padding: 14px 20px 16px;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    audio {
+      width: 100%;
+      height: 32px;
+      accent-color: #E05A1C;
+      display: block;
+      margin-top: 8px;
+    }
+    .note {
+      max-width: 960px;
+      margin: 32px auto 0;
+      text-align: center;
+      font-size: 11px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .note a { color: #E05A1C; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">InK<span>L</span>USO</div>
+  <div class="tagline">Voice Roster — Each Division, Its Own Voice</div>
+</div>
+
+<div class="grid">
+
+  <!-- AXIS — Charon -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#E05A1C;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Axis</div>
+        <div class="role-name">Geopolitics Analyst</div>
+      </div>
+      <div class="voice-badge">Charon</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"Thirty years of watching empires shift has taught me one thing — the map always lies."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_axis.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- CORE — Kore -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#4A90E2;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Core</div>
+        <div class="role-name">Business Analyst</div>
+      </div>
+      <div class="voice-badge">Kore</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"Behind every headline is a balance sheet, a decision tree, and someone who got it wrong."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_core.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- FLOW — Puck -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#27AE60;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Flow</div>
+        <div class="role-name">Culture & Lifestyle Host</div>
+      </div>
+      <div class="voice-badge">Puck</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"Culture moves faster than any trend report. I'm just here to catch it first."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_flow.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- KONTRARIAN — Fenrir -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#9B59B6;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Kontrarian</div>
+        <div class="role-name">The Provocateur</div>
+      </div>
+      <div class="voice-badge">Fenrir</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"Everyone else is afraid to say it. I'm not."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_kontrarian.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- CITIES & THRIVE — Aoede -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#F39C12;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Cities / Thrive</div>
+        <div class="role-name">City Correspondent & Wellness Guide</div>
+      </div>
+      <div class="voice-badge">Aoede</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"Every city has a rhythm. Once you hear it, you can't unhear it."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_cities.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- CRUMBS — Puck -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#1ABC9C;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Crumbs</div>
+        <div class="role-name">Your Daily Briefing</div>
+      </div>
+      <div class="voice-badge">Puck</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"Quick, sharp, and gone before your coffee gets cold."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_flow.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- SIGNALS — Kore -->
+  <div class="card">
+    <div class="card-header">
+      <div class="division-dot" style="background:#3498DB;"></div>
+      <div class="card-title-group">
+        <div class="division-name">Signals</div>
+        <div class="role-name">Data Signals Analyst</div>
+      </div>
+      <div class="voice-badge">Kore</div>
+    </div>
+    <div class="card-body">
+      <div class="card-desc">"The signal is in the noise — if you know where to look."</div>
+      <audio controls>
+        <source src="https://raw.githubusercontent.com/jjaecheverri/inkluso-magazine/main/audio/voice_demo_core.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  All voices powered by <strong>Gemini TTS</strong> — the AI narrators behind every Inkluso article.<br>
+  <a href="https://jjaecheverri.github.io/inkluso-magazine-claude-update/audio/">Browse the audio library &rarr;</a>
+</div>
+
+</body>
+</html>
